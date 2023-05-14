@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+*
+{
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  font-family:'Source Sans Pro', sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+body
+{
+    background-color: #33b4c4; 
+}
+
+.lista-lembretes
+{
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+/* Carregamento da página */
+#app {
+    display: flex;
+    justify-content: center;
+}
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*Página do To Do List */
+h1
+{
+    padding: 0 6rem 1rem 0;
+}
+.todo-container
+{
+  background-color: #e4ebec;
+  max-width: 450px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border-radius: 15px;
+}
+.form-control
+{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input
+{
+  padding: .25rem .5rem;
+}
+.lista
+{
+    list-style: none;
+
+}
+.botao-criar
+{
+  margin-top: 1rem;
+  color: white;
+  background-color: #0055d2;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid #0055d2;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  font-size: 14px;
+}
+
+.botao-criar:hover
+{
+  background-color: #568fe6; 
+  border: 2px solid #568fe6;
+}
+
+/*Lista de lembretes */
+.todo-list
+{
+  padding: 1rem 1rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.todo-lembretes
+{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 3s;
+}
+.checkbox
+{
+    cursor: pointer;
+
+}
+li
+{
+  font-size: 18px;
+}
+.remove
+{
+  outline: none;
+  border: none;
+  background-color: #ca3c1c;
+  border: 2.5px solid #ca3c1c;
+  padding: 0 .15rem 0 .15rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color:#fff;
+  align-items: center;
+}

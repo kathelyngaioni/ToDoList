@@ -1,0 +1,74 @@
+﻿@page "/"
+@using ToDoList.Models
+
+<body>    
+    <div class="todo-container">
+        <h1>Novo lembrete</h1>
+        <div class="form-control">
+            <input type="text" id="todo-input" placeholder="Nome do lembrete" @bind="ItemName"  maxLength="45"/>
+            <input type="date" id="todo-input" placeholder="data do lembrete (no formato dd/mm/yyyy)"/>
+        </div>
+            <button @onclick="AddItem" class= "botao-criar">Criar</button>
+        <div class="todo-list">
+            <h1>Lista de lembretes</h1>
+            <div>
+                    <ul class="todo-lembretes">
+                        @for(int i=0; i<todolist.Count; i++)
+                        {  
+                        @foreach(var item in todolist)
+                        {
+                            var index = i;
+                            <li class="lista">
+                                <div class="lista-lembretes">
+                                    @if(item.IsDone){
+                                        <input type="checkbox" class="checkbox" @bind="item.IsDone"/>
+                                        <span style="text-decoration:line-through">@item.Title </span>
+                                        <button class="remove" @onclick="@(()=>RemoveTodo(index))">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                    }
+                                    else {
+                                        
+                                            <input type="checkbox" class="checkbox" @bind="item.IsDone"/>
+                                            <span>@item.Title</span>
+                                            <button class="remove" @onclick="@(()=>RemoveTodo(index))">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                    }
+                                </div>
+                            </li>
+                            i++;
+                        }
+                        }         
+                    </ul>
+            </div>
+        </div>
+    </div>
+</body>   
+                
+@code {
+
+    private IList<ToDoItem>todolist = new List<ToDoItem>();
+    private string ItemName;
+   // private DateOnly date;
+
+    private void AddItem()
+    {
+        if(string.IsNullOrEmpty(ItemName))
+        {
+            //mensagem para escrever alguma coisa aqui
+        }     
+        else
+        {
+            todolist.Add(new ToDoItem(){IsDone = false, Title = ItemName});
+            ItemName = string.Empty;
+            ItemName = "";
+        }
+    }
+    
+    public void RemoveTodo(int Index)
+    {
+        todolist.RemoveAt(Index);
+    }
+    
+}
